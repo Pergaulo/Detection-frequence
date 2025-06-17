@@ -1,0 +1,600 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0f0f0f;
+  background-color: #f6f6f6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.container {
+  margin: 0;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+/*body{
+  display: grid;
+  grid-template-areas: 
+    "menu song  song"
+    "menu song song"
+    "menu tools tools"
+    "bottom bottom  bottom";
+
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 50px auto 70px;
+  gap: 0 50px;
+}*/
+
+h1{
+  text-align: center;
+  padding-bottom: 25px;
+}
+/*
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: 0.75s;
+}
+
+.logo.tauri:hover {
+  filter: drop-shadow(0 0 2em #24c8db);
+}
+*/
+.row {
+  display: flex;
+  justify-content: center;
+  border: 1px solid blue;
+  background-color: blue;
+}
+.column {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid red; /* Ajout de bordures */
+  box-sizing: border-box;
+  background-color: red;
+}
+/*
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  text-align: center;
+}
+*/
+input,
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #0f0f0f;
+  background-color: #ffffff;
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #396cd8;
+}
+button:active {
+  border-color: #396cd8;
+  background-color: #e8e8e8;
+}
+
+input,
+button {
+  outline: none;
+}
+
+#greet-input {
+  margin-right: 5px;
+}
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f6f6f6;
+    background-color: #2f2f2f;
+  }
+
+  a:hover {
+    color: #24c8db;
+  }
+
+  input,
+  button {
+    color: #ffffff;
+    background-color: #0f0f0f98;
+  }
+  button:active {
+    background-color: #0f0f0f69;
+  }
+}
+*/
+.container2{
+  display: grid;
+  grid-template-columns: 280px auto;
+
+  
+}
+.audio-container{
+  /*box-sizing: border-box;*/
+  /*width: 100%;*/
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+  font-family: "Roboto", sans-serif;
+  /*position: relative;*/
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.audio-container .audio {
+  background: #222;
+  height: 230px;
+  position: relative;
+}
+
+.audio-container .track-name {
+
+  top: 8px;
+  left: 8px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px 32px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.bottom-btn .btn {
+  padding: 16px;
+  width: 24px;
+  margin-right: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.manage {
+  position: absolute;
+  bottom: 0;
+  padding-top: 100px;
+}
+
+.bottom-btn .buttons .volume-slider {
+  width: 200px;
+  margin-left: 30px;
+}
+
+.bottom-btn .buttons .play-btn .fa-pause {
+  display: none;
+}
+
+.bottom-btn .buttons .play-btn.playing .fa-pause {
+  display: inline-block;
+}
+
+.bottom-btn .buttons .play-btn.play-btn.playing .fa-play {
+  display: none;
+}
+.bottom-btn .buttons .mute-btn .fa-volume-mute {
+  display: none;
+}
+
+.bottom-btn .buttons .mute-btn.muted .fa-volume-mute {
+  display: inline-block;
+}
+
+.bottom-btn .buttons .mute-btn.muted .fa-volume-up {
+  display: none;
+}
+
+.bottom-btn-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+}
+.bottom-btn {
+  display: inline-block;
+  border-top: 2px solid #222;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.menu-load {
+  display: inline-block;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border:none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  height: auto;
+}
+
+.nav-bar{
+  width: calc(100% - 20px);
+  margin-top: 10px;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+nav{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  background: #ffff;
+  width: 280px;
+  overflow: hidden;
+  /*transition: width 0.2s linear;*/
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.logo-nav {
+  text-align: center;
+  display: flex;
+  /*transition: all 0.5s ease;*/
+  margin: 0px 0 0 10px;
+}
+.logo-nav img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.logo-nav span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+
+.menu {
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 300px;
+  padding: 10px;
+}
+.menu:hover{
+  background:#eee;
+}
+a{
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 300px;
+  padding: 10px;
+}
+
+.fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+
+a:hover{
+  background:#eee;
+}
+
+/*
+nav:hover{
+  width: 280px;
+  transition: all 0.5s ease;
+}*/
+input[type="file"]{
+  display: none;
+}
+
+.tools{
+  padding-top: 25px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+.align{
+  display: flex;
+  gap: 20px;
+}
+.box-tools{
+  align-items: center;
+}
+.box-tools2{
+  margin-bottom: 20px;
+}
+
+.input-user{
+  margin-bottom: 20px;
+}
+
+.filters{
+  padding-top: 25px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+
+.record{
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+
+.frequences {
+  text-align: center;
+  padding-top: 25px;
+  position: relative;
+  display: none;
+  /*height: 1000px;*/
+  justify-content: center;
+  align-items: center;
+}
+
+.freq-btn{
+  /*position: absolute;*/
+  /*align-items: center;*/
+  /*width: 800px;*/
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 800px; /*540*/
+  /*padding-left: 100px;*/
+}
+/*
+.frequences{
+  padding-top: 50px;
+  padding-left: 280px;
+  text-align: center;
+  position: relative;
+  display:none;
+  box-sizing: border-box;
+}*/
+/*
+.chart-freq {
+  width: 400px
+  height: 200px;
+}*/
+
+.compression{
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+
+.noise-reduction{
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+
+.informations{
+  box-sizing: border-box;
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+
+.equalizer{
+  padding-top: 25px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+
+.generators{
+  padding-top: 25px;
+  text-align: center;
+  position: relative;
+  display:none;
+}
+
+/*.chart-freq {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}*/
+
+.info{
+  font-size: 20px;
+  text-align: justify;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.save-btn{
+  position: absolute;
+  right: 0;
+}
+
+
+.slide-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-range {
+  -webkit-appearance: none; /* Remove default styling */
+  width: 300px; /* Height of the vertical range (horizontal width) */
+  transform: rotate(-90deg); /* Rotate the range input */
+  transform-origin: 150px 150px; /* Adjust origin to rotate properly */
+  margin: 0; /* Remove default margin */
+}
+
+.vertical-range::-webkit-slider-runnable-track {
+  width: 100%; /* Track width */
+  height: 8px; /* Track height */
+  background: #ddd; /* Track color */
+}
+
+.vertical-range::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styling */
+  width: 20px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  background: #000; /* Thumb color */
+  cursor: pointer; /* Cursor when hovering */
+  border-radius: 50%; /* Make the thumb round */
+}
+
+.vertical-range::-moz-range-track {
+  width: 100%; /* Track width */
+  height: 8px; /* Track height */
+  background: #ddd; /* Track color */
+}
+
+.vertical-range::-moz-range-thumb {
+  width: 25px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  background: #000; /* Thumb color */
+  cursor: pointer; /* Cursor when hovering */
+  border-radius: 50%; /* Make the thumb round */
+}
+
+.reset-prev-btn {
+  float: left;
+  gap: 15px;
+}
+
+.option-btn {
+  width: 100px;
+}
+
+.balance-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Aligne les éléments au centre */
+}
+.balance-input input[type="range"] {
+  margin-bottom: 10px; /* Espace entre le range et le texte */
+}
+.balance-input p {
+  margin: 0; /* Évite des marges supplémentaires */
+  font-size: 16px; /* Taille du texte */
+  color: #333; /* Couleur du texte */
+}
+
+.melody {
+  margin-top: 15px;
+}
+
+.melody-elt {
+  display: inline-block;
+  box-sizing: border-box; 
+}
+
+
+p {
+  font-family: Arial, sans-serif; /* Utilisation d'une police de caractères sans-serif par défaut */
+  font-size: 16px; /* Taille de la police */
+  line-height: 1.6; /* Hauteur de ligne pour un meilleur espacement entre les lignes */
+  color: #333; /* Couleur du texte */
+  margin: 0 0 10px 0; /* Marge en bas pour séparer les paragraphes */
+  padding: 0; /* Réinitialisation des marges intérieures */
+}
+
+p:first-child {
+  margin-top: 0; /* Supprime la marge en haut du premier paragraphe */
+}
+
+p:last-child {
+  margin-bottom: 0; /* Supprime la marge en bas du dernier paragraphe */
+}
+
+p strong {
+  font-weight: bold; /* Texte en gras pour les éléments <strong> dans les paragraphes */
+}
+
+p em {
+  font-style: italic; /* Texte en italique pour les éléments <em> dans les paragraphes */
+}
+
+p a {
+  color: #007bff; /* Couleur des liens */
+  text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+p a:hover {
+  text-decoration: underline; /* Souligne les liens au survol */
+}
+
+.range-label-top {
+  margin-right: 270px;
+}
+
+.range-label-bottom {
+  margin-right: 300px;
+  margin-top: 270px;
+}
+
+.align2{
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.range-label-bottom2 {
+  margin-right: 275px;
+  margin-top: 270px;
+}
+
+
+.autotune{
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+  display:none;
+}

@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tauri App</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script type="module" src="/main.js" defer></script>
+    <style>
+      .logo.vanilla:hover {
+        filter: drop-shadow(0 0 2em #ffe21c);
+      }
+    </style>
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+    />
+  </head>
+
+  <body>
+
+    <div class="container2">
+
+      <div class="nav-bar">
+        <nav>
+          <ul>
+            <li>
+              <a href="https://natkeim.wixsite.com/echo" class="logo-nav">
+                <img src="assets/Echo.png" alt="">
+                <span class="nav-item">Echo</span>
+              </a>
+            </li>
+            <li>
+              <span class="menu-tools menu">
+              <i class="fas fa-screwdriver-wrench"></i>
+              <span class="nav-item">Tools</span>
+            </span></li>
+
+            <li><span class="menu-filters menu">
+              <i class="fas fa-filter"></i>
+              <span class="nav-item">Filters</span>
+            </span></li>
+
+            <li><span class="menu-generator menu">
+              <i class="fas fa-guitar"></i>
+              <span class="nav-item">Generator</span>
+            </span></li>
+
+            <li><span class="menu-frequences menu">
+              <i class="fas fa-wave-square"></i>
+              <span class="nav-item">Frequences</span>
+            </span></li>
+
+            <li><span class="menu-egaliseur menu">
+              <i class="fas fa-record-vinyl"></i>
+              <span class="nav-item">Balance</span>
+            </span></li>
+
+            <li><span class="menu-autotune menu">
+              <i class="fas fa-headphones-simple"></i>
+              <span class="nav-item">Auto Tune</span>
+            </span></li>
+
+            <li><span class="menu-record menu">
+              <i class="fas fa-microphone"></i>
+              <span class="nav-item">Record</span>
+            </span></li>
+
+            <li><span class="menu-compression menu">
+              <i class="fas fa-file-zipper"></i>
+              <span class="nav-item">Compression</span>
+            </span></li>
+
+            <li><span class="menu-noise-reduction menu">
+              <i class="fas fa-music"></i>
+              <span class="nav-item">Noise reduction</span>
+            </span></li>
+
+            <li><span class="menu-infos menu">
+              <i class="fas fa-circle-info"></i>
+              <span class="nav-item">Informations</span>
+            </span></li>
+
+            <li>
+              <span class="menu" id="uploadBtn">
+                <i class="fas fa-file-import"></i>
+                <span class="nav-item">Select File</span>
+              </span>
+
+              <!-- <input type="file" id="uploadBtn" class=" menu-load menu manage">
+              <label for="uploadBtn" class="menu">
+                <i class="fas fa-file-import"></i>
+                <span class="nav-item">Select File</span>
+              </label>
+            </input> -->
+            
+          </li>
+
+            <!--
+              <li>
+              <span class="submit menu manage">
+                <i class="fas fa-upload"></i>
+                <span class="nav-item">Load File</span>
+              </span></li>
+            -->
+
+            </li>
+          </ul>
+        </nav>
+        
+      </div>
+      
+      <div>
+
+        <div class="audio-container">
+          <!--<div class="track-name">The Name of the track</div>-->
+          <div class="audio"></div>
+          <!--<audio controls="" src="blob:https://wavesurfer.xyz/35ff7a4e-4241-4400-9993-0d83d142b6df"></audio>-->
+        </div>
+
+        <div class="frequences">
+          <div>
+            <h1>Frequences</h1>
+
+            <button id="apply-btn3">Analyse</button>
+          </div>
+
+
+          <div class="freq-btn">
+            <canvas id="myChart" class="chart-freq"></canvas>  
+          </div>
+          
+    
+        </div>
+
+        <div class="tools menu-display">
+          <h1>Tools Box</h1>
+          
+          <div class="align">
+
+            <div>
+
+              <div class="speed input-tools input-user">
+                <label for="speed-input">Speed</label>
+                <input id="speed-input" placeholder="Enter a number" />
+              </div>
+        
+              <div class="gain input-user">
+                <label for="gain-input">Gain</label>
+                <input id="gain-input" placeholder="Enter a number" />
+              </div>
+
+            </div>
+
+            
+
+            <div>
+            
+              <div class="mute input-tools input-user">
+                <label for="mute-input">Mute</label>
+                <input id="mute-input" placeholder="Start" />
+              </div>
+        
+              <div class="end input-user" style="margin-left: 45px;">
+                <input id="end-input" placeholder="End" />
+              </div>
+  
+            </div>
+
+            <div>
+            
+              <div class="distortion input-tools input-user">
+                <label for="distortion-input">Distortion</label>
+                <input id="distortion-input" placeholder="Gain" />
+              </div>
+
+              <div class="vibration input-tools input-user">
+                <label for="vibration-input">Vibration</label>
+                <input id="vibration-input" placeholder="frequence" />
+              </div>
+              
+              <div class="ambiance input-user" style="margin-right: 80px;">
+                <form>
+                  <label for="ambiance-choix">Choose an ambiance :</label>
+                  <select id="ambiance-choix" name="ambiance-choix">
+                    <option value="0">None</option>
+                      <option value="1">Forest</option>
+                      <option value="2">Cave</option>
+                      <option value="3">Rain</option>
+                  </select>
+  
+                </form>
+              </div>
+
+            </div>
+
+            <div>
+              <div class="repetition1-start input-tools input-user">
+                <label for="repetition1-start-input">Repeat segment</label>
+                <input id="repetition1-start-input" placeholder="Start" style="width: 100px;"/>
+              </div>
+              <div class="repetition1-end input-tools input-user" style="margin-left: 125px;">
+                <input id="repetition1-end-input" placeholder="End" style="width: 100px;"/>
+              </div>
+              <div class="repetition1-count input-tools input-user" style="margin-left: 125px;">
+                <input id="repetition1-count-input" placeholder="Number" style="width: 100px;"/>
+              </div>
+              <div style="margin-left: 100px;">
+                <label for="Repeat2">Interval</label>
+                <input type="checkbox" id="Repeat2" name="intervalle" value="1">
+              </div>
+            </div>
+            
+          </div>
+
+          <button id="apply-btn1" style="margin-top: 10px;">Apply</button>
+          <!-- <button id="see-change-btn1">See Change</button> -->
+        </div>
+
+
+        <div class="generators">
+          <h1>Generator</h1>
+  
+          <div class="align2">
+
+
+            <div>
+              <div class="tone input-user">
+                <label for="tone-input">Generate tone</label>
+                <input id="tone-input" placeholder="Enter a frequence" />
+              </div>
+            </div>
+
+            
+            <div>
+              <div class="input-user">
+
+                <p style="margin-bottom: 20px;">Generate Melody</p>
+  
+                <div class="melody" style="margin-bottom: 20px;">
+                  <label for="melody-input">Metric</label>
+                  <input id="melody-input" placeholder="Enter a metric" />
+                </div>
+  
+                
+                <div class="melody">
+                  <form>
+                    <label for="choix">Choose a style :</label>
+                    <select id="choix" name="choix">
+                        <option value="0">None</option>
+                        <option value="ode">Style 1</option>
+                        <option value="DW">Style 2</option>
+                        <option value="POC">Style 3</option>
+                        <option value="BT">Style 4</option>
+                    </select>
+    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button id="apply-btn7" style="margin-top: 15px;">Generate</button>
+
+        </div>
+
+        <div class="equalizer">
+          <h1>Balance</h1>
+
+          <!--<div class="box-tools">
+            <label for="speed-input">Egaliseur</label>
+            <input id="min-freq-input" placeholder="Enter min frequence" />
+            <input id="max-freq-input" placeholder="Enter a max frequence" />
+            <input id="gain-egal-input" placeholder="Enter a gain" />
+            <input id="fiability-input" placeholder="Enter fiability coef" />
+          </div>-->
+          
+          <div class="align2">
+            <div class="slide-container" style="margin-top: 50px;">
+
+              <div class="balance-input">
+                <label for="min-freq-input" class="range-label-top" id="rangeValue1">150</label>
+                <input type="range" min="0" max="1000" value="500" class="vertical-range" id="min-freq-input">
+                <label for="min-freq-input" class="range-label-bottom">Frequence min</label>
+              </div>
+              
+              <div class="balance-input">
+                <label for="max-freq-input" class="range-label-top" id="rangeValue2">150</label>
+                <input type="range" min="0" max="1000" value="500" class="vertical-range" id="max-freq-input">
+                <label for="max-freq-input" class="range-label-bottom">Frequence max</label>
+              </div>
+              
+              <div class="balance-input">
+                <label for="gain-egal-input" class="range-label-top" id="rangeValue3">15</label>
+                <input type="range" min="0" max="30" value="15" class="vertical-range" id="gain-egal-input">
+                <label for="gain-egal-input" class="range-label-bottom2">Gain</label>
+              </div>
+  
+              <!--<input type="range" min="0" max="100" value="50" class="vertical-range">-->
+              </div>
+  
+          </div>
+
+          <button id="apply-btn8" style="margin-top: 50px;">Apply</button>
+        </div>
+
+
+    
+        <div class="filters">
+          <h1>Filter</h1>
+
+          <div class="align2">
+
+            <div>
+              <div class="input-user">
+                <label for="high-input">High Pass</label>
+                <input id="high-input" placeholder="Enter a frequence" />
+              </div>
+        
+              <div class="input-user">
+                <label for="low-input">Low Pass</label>
+                <input id="low-input" placeholder="Enter a frequence" />
+              </div>
+            </div>
+
+            <div class="box-tools">
+              <div>
+                <button id="reverse-sound" class="box-tools2">Reverse Sound</button>
+              </div>
+              <div>
+                <button id="alternate-channels" class="box-tools2">Alternate channel</button>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <button id="cut-left" class="box-tools2">Cut channel left</button>
+              </div>
+              <div>
+                <button id="cut-right" class="box-tools2">Cut channel right</button>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <button id="echo" class="box-tools2">Echo</button>
+              </div>
+              <div>
+                <button id="fade" class="box-tools2">Fade</button>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <button id="fusion" class="box-tools2" style="margin-right: 80px;">Merge Sounds</button>
+              </div>
+
+              <div>
+                <button id="detect-sound-btn" class="box-tools2" style="margin-right: 125px;">Shazam</button>
+              </div>
+            </div>
+
+          </div>
+    
+          
+    
+          <button id="apply-btn2">Apply</button>
+    
+        </div>
+
+        <div class="autotune">
+          <h1>Auto Tune</h1>
+
+          <div class="align2">
+            <div>
+              <div class="autotune-freq1 input-tools input-user">
+                <label for="autotune-freq1-input">Fréquence 1</label>
+                <input id="autotune-freq1-input" placeholder="Fréquence" />
+              </div>
+              <div class="autotune-freq2 input-tools input-user">
+                <label for="autotune-freq2-input">Fréquence 2</label>
+                <input id="autotune-freq2-input" placeholder="Fréquence" />
+              </div>
+            </div>
+          </div>
+
+          <button id="apply-btn9">Apply</button>
+
+        </div>
+    
+        <div class="record">
+          <h1>Record</h1>
+    
+          <button id="apply-btn4">Record</button>
+    
+        </div>
+    
+        <div class="compression">
+          <h1>Compression</h1>
+    
+          <button id="apply-btn5">Compress audio</button>
+
+          <p id="compress-para" class="info">
+          </p>
+        </div>
+    
+        <div class="noise-reduction">
+          <h1>Noise Reduction</h1>
+    
+          <button id="apply-btn6">Remove noise</button>
+        </div>
+    
+        <div class="informations">
+          <h1>Informations</h1>
+
+
+          
+          <p id="pFilename" class="info">
+            Filename:
+          </p>
+    
+          <p id="pChannels" class="info">
+            Channels:
+          </p>
+    
+          <p id="pSampleRate" class="info">
+            Sample rate:
+          </p>
+    
+          <p id="pBits" class="info">
+            Bits per sample:
+          </p>
+    
+          <p id="pNSamples" class="info">
+            Number of samples:
+          </p>
+    
+          <p id="pDuration" class="info">
+            Duration:
+          </p>
+    
+        </div>
+  
+      </div>
+    </div>
+
+
+    
+
+
+    <div class="bottom-btn-container">
+      <div class="bottom-btn">
+        <div class="buttons">
+
+          <div class="reset-prev-btn">
+            <button class="option-btn" id="prev-btn">Previous</button>
+            <button class="option-btn" id="reset-btn">Reset</button>
+            <button class="option-btn" id="forward-btn">Forward</button>
+          </div>
+          
+          <span class="play-btn btn">
+            <i class="fas fa-play"></i>
+            <i class="fas fa-pause"></i>
+          </span>
+
+          <span class="stop-btn btn">
+            <i class="fas fa-stop"></i>
+          </span>
+
+          <span class="mute-btn btn">
+            <i class="fas fa-volume-up"></i>
+            <i class="fas fa-volume-mute"></i>
+          </span>
+          
+          <input
+            type="range" 
+            min="0" 
+            max="1"
+            step="0.1" 
+            value="0.5" 
+            class="volume-slider"
+          />
+
+          <button class="save-btn" id="savebtn">Save</button>
+
+          <!-- <input id="greet-input" placeholder="Enter a name" /> -->
+        </div>
+
+      </div>
+    </div>
+
+    
+    <!-- 
+    <div class="container">
+      <h1>Welcome to Tauri!</h1>
+
+      <div class="row">
+        <a href="https://tauri.app" target="_blank">
+          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
+        </a>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+          target="_blank"
+        >
+          <img
+            src="/assets/javascript.svg"
+            class="logo vanilla"
+            alt="JavaScript logo"
+          />
+        </a>
+      </div>
+
+      <p>Click on the Tauri logo to learn more about the framework</p>
+
+      <form class="row" id="greet-form">
+        <input id="greet-input" placeholder="Enter a name..." />
+        <button type="submit">Greet</button>
+      </form>
+
+      <p id="greet-msg"></p>
+    </div> 
+    //-->
+  </body>
+</html>

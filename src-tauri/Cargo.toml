@@ -1,0 +1,38 @@
+[package]
+name = "echo"
+version = "0.0.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1", features = [] }
+
+[dependencies]
+tauri = { version = "1", features = ["shell-open","dialog-open", "dialog-save","fs-all", "path-all", "protocol-asset", "dialog-ask", "dialog-confirm", "dialog-message"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rodio = "0.17.3"
+hound = "3.5.1"
+ndarray = "0.15.6"
+plotters = "0.3.5"
+plotters-backend = "0.3.5"
+winit = "0.29.10"
+nannou = "0.19.0"
+rustfft = "6.2.0"
+num-complex = "0.4.5"
+rand = "0.8.5"
+mp3lame-encoder = "0.1.4"
+pv_recorder = "*"
+crossterm = "0.20.0"
+cpal = "0.12"
+clap = "3.0.0"
+midi-reader-writer = "0.1.2"
+midly = "=0.5.0"
+rfd = "0.8.0"
+
+[features]
+# This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
